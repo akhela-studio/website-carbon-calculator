@@ -1,0 +1,15 @@
+{
+    "name": "skild/website-carbon-calculator",
+    "description": "Estimate your web page carbon footprint",
+    "license": "MIT",
+    "require": {
+        "guzzlehttp/guzzle": "~6.0",
+        "sabre/uri": "^2",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Skild\\WebsiteCarbonCalculator\\" : "src/"
+        }
+    }
+}
