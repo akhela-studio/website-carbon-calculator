@@ -19,27 +19,34 @@ $websiteCarbonCalculator = new WebsiteCarbonCalculator('GooglePagespeedApiKey');
 $websiteCarbonCalculator->calculateByURL('https://www.websitecarbon.com/how-does-it-work/')
 ```
 
-return
+Output
 
 ```json
 {
-  "url": "https://www.websitecarbon.com/how-does-it-work",
-  "bytesTransferred": 60695,
-  "itemsTransferred": 9,
+  "url": "https:\/\/www.websitecarbon.com",
   "isGreenHost": true,
-  "performanceScore": 1,
+  "bytesTransferred": 135289,
+  "networkRequests": 16,
+  "performanceScore": 0.94,
   "loadingExperience": "FAST",
-  "energy": 7.703185081481933e-5,
-  "co2PerPageview": 0.0331611887928009
+  "domSize": 308, //https://web.dev/dom-size/
+  "speedIndex": 934, //https://web.dev/speed-index/
+  "firstMeaningfulPaint": 491, //https://web.dev/first-meaningful-paint/
+  "interactive": 692, //https://web.dev/interactive/
+  "bootupTime": 94, //https://web.dev/bootup-time/
+  "serverResponseTime": 150, //https://web.dev/time-to-first-byte/
+  "mainthreadWork": 762, //https://web.dev/mainthread-work-breakdown/
+  "energy": 0.00017170618753880262,
+  "co2PerPageview": 0.07391723347728402
 }
 ```
 
-For better performance, detect hosting energy type and store the value in a database.
+For better performance, detect hosting energy type and store it in a database to avoid repetitive call to The Green Web Foundation.
 
 #### Detect hosting energy type
 
 ```php
-$isGreenHost = WebsiteCarbonCalculator::isGreenHosting('https://www.websitecarbon.com')
+$isGreenHost = WebsiteCarbonCalculator::isGreenHost('https://www.websitecarbon.com')
 $websiteCarbonCalculator->calculateByURL('https://www.websitecarbon.com/how-does-it-work/', ['isGreenHost'=>$isGreenHost])
 ```
 

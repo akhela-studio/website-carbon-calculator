@@ -29,7 +29,7 @@ class WebsiteCarbonCalculator {
 
 	private $pagespeedApiKey;
 
-	public function __construct(string $pagespeedApiKey)
+	public function __construct(string $pagespeedApiKey='')
 	{
 		$this->pagespeedApiKey = $pagespeedApiKey;
 	}
@@ -151,14 +151,34 @@ class WebsiteCarbonCalculator {
 			$lighthouseData->lighthouseResult->audits->{'network-requests'}->details->items
 		);
 
+        $count = $performanceScore = 0;
+        foreach ($lighthouseData->lighthouseResult->audits as $audit){
+
+            if( is_numeric($audit->score) )
+            {
+
+                $performanceScore += $audit->score;
+                $count ++;
+            }
+        }
+
+        $performanceScore = $performanceScore/$count;
+
 		// This returns a sanitised version of the entry
 		return [
 			'url'   => $url,
-			'bytesTransferred' => $bytesTransfered,
-			'itemsTransferred' => count($lighthouseData->lighthouseResult->audits->{'network-requests'}->details->items),
-			'isGreenHost' => $isGreenHost,
-			'performanceScore' => $lighthouseData->lighthouseResult->categories->performance->score,
-			'loadingExperience' => $lighthouseData->loadingExperience->overall_category
+            'isGreenHost' => $isGreenHost,
+            'bytesTransferred' => $bytesTransfered,
+			'networkRequests' => count($lighthouseData->lighthouseResult->audits->{'network-requests'}->details->items),
+            'domSize' => $lighthouseData->lighthouseResult->audits->{'dom-size'}->numericValue,
+            'performanceScore' => round($performanceScore*100)/100,
+			'loadingExperience' => $lighthouseData->loadingExperience->overall_category,
+			'speedIndex' => round($lighthouseData->lighthouseResult->audits->{'speed-index'}->numericValue),
+			'firstMeaningfulPaint' => round($lighthouseData->lighthouseResult->audits->{'first-meaningful-paint'}->numericValue),
+			'interactive' => round($lighthouseData->lighthouseResult->audits->{'interactive'}->numericValue),
+			'bootupTime' => round($lighthouseData->lighthouseResult->audits->{'bootup-time'}->numericValue),
+			'serverResponseTime' => round($lighthouseData->lighthouseResult->audits->{'server-response-time'}->numericValue),
+			'mainthreadWork' => round($lighthouseData->lighthouseResult->audits->{'mainthread-work-breakdown'}->numericValue)
 		];
 	}
 
