@@ -29,13 +29,13 @@ Output
   "networkRequests": 16,
   "performanceScore": 0.94,
   "loadingExperience": "FAST",
-  "domSize": 308, //https://web.dev/dom-size/
-  "speedIndex": 934, //https://web.dev/speed-index/
-  "firstMeaningfulPaint": 491, //https://web.dev/first-meaningful-paint/
-  "interactive": 692, //https://web.dev/interactive/
-  "bootupTime": 94, //https://web.dev/bootup-time/
-  "serverResponseTime": 150, //https://web.dev/time-to-first-byte/
-  "mainthreadWork": 762, //https://web.dev/mainthread-work-breakdown/
+  "domSize": 308,
+  "speedIndex": 934,
+  "firstMeaningfulPaint": 491,
+  "interactive": 692, 
+  "bootupTime": 94,
+  "serverResponseTime": 150,
+  "mainthreadWork": 762,
   "energy": 0.00017170618753880262,
   "co2PerPageview": 0.07391723347728402
 }
@@ -69,3 +69,17 @@ The internet consumes a lot of electricity. 416.2TWh per year to be precise. To 
 From data centres to transmission networks to the devices that we hold in our hands, it is all consuming electricity, and in turn producing carbon emissions.
 
 This project is widely inspired by the [Website Carbon Calculator algorithm](https://gitlab.com/wholegrain/carbon-api-2-0)
+
+### Glossary
+
+- isGreenHost : server uses sustainable energy
+- networkRequests : https://web.dev/performance-scoring/
+- performanceScore : https://web.dev/resource-summary/
+- domSize : https://web.dev/dom-size/
+- speedIndex : https://web.dev/speed-index/
+- firstMeaningfulPaint : https://web.dev/first-meaningful-paint/
+- interactive : https://web.dev/interactive/
+- bootupTime : https://web.dev/bootup-time/
+- serverResponseTime : https://web.dev/time-to-first-byte/
+- mainthreadWork : https://web.dev/mainthread-work-breakdown/
+- co2PerPageview : estimated grams of CO2 produced every time someone visits the web page
