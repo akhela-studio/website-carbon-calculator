@@ -1,5 +1,5 @@
 {
-    "name": "skild/website-carbon-calculator",
+    "name": "akhela/website-carbon-calculator",
     "version": "1.0.0",
     "description": "Estimate your web page carbon footprint",
     "license": "MIT",
@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4" : {
-            "Skild\\WebsiteCarbonCalculator\\" : "src/"
+            "Akhela\\WebsiteCarbonCalculator\\" : "src/"
         }
     },
     "require-dev": {

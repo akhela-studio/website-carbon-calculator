@@ -1,10 +1,10 @@
 <?php
 
-namespace Skild\WebsiteCarbonCalculator;
+namespace Akhela\WebsiteCarbonCalculator;
 
 use Exception;
-use Skild\WebsiteCarbonCalculator\Traits\HelpersTraits;
-use Skild\WebsiteCarbonCalculator\Traits\UrlTraits;
+use Akhela\WebsiteCarbonCalculator\Traits\HelpersTraits;
+use Akhela\WebsiteCarbonCalculator\Traits\UrlTraits;
 
 use Sabre\Uri\InvalidUriException;
 

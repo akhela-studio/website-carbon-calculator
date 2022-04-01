@@ -5,7 +5,7 @@ Estimate your web page carbon footprint
 ### Installation
 
 ```shell
-$ composer require skild/website-carbon-calculator
+$ composer require akhela/website-carbon-calculator
 ```
 
 ### API
@@ -23,7 +23,7 @@ Output
 
 ```json
 {
-  "url": "https:\/\/www.websitecarbon.com",
+  "url": "https://www.websitecarbon.com",
   "isGreenHost": true,
   "bytesTransferred": 135289,
   "networkRequests": 16,
@@ -36,8 +36,8 @@ Output
   "bootupTime": 94,
   "serverResponseTime": 150,
   "mainthreadWork": 762,
-  "energy": 0.00017170618753880262,
-  "co2PerPageview": 0.07391723347728402
+  "energy": 0.000171,
+  "co2PerPageview": 0.0739
 }
 ```
 
@@ -83,3 +83,10 @@ This project is widely inspired by the [Website Carbon Calculator algorithm](htt
 - serverResponseTime : https://web.dev/time-to-first-byte/
 - mainthreadWork : https://web.dev/mainthread-work-breakdown/
 - co2PerPageview : estimated grams of CO2 produced every time someone visits the web page
+
+### Tests
+
+Run tests 
+```shell
+$ pagespeedApiKey=xxxxxx php vendor/bin/phpunit
+```

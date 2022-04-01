@@ -1,7 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use Skild\WebsiteCarbonCalculator\WebsiteCarbonCalculator;
+use Akhela\WebsiteCarbonCalculator\WebsiteCarbonCalculator;
 
 class WebsiteCarbonCalculatorTest  extends TestCase
 {

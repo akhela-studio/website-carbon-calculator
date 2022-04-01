@@ -1,6 +1,6 @@
 <?php
 
-namespace Skild\WebsiteCarbonCalculator\Traits;
+namespace Akhela\WebsiteCarbonCalculator\Traits;
 
 use Sabre\Uri;
 
