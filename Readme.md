@@ -68,7 +68,7 @@ The internet consumes a lot of electricity. 416.2TWh per year to be precise. To 
 
 From data centres to transmission networks to the devices that we hold in our hands, it is all consuming electricity, and in turn producing carbon emissions.
 
-This project is widely inspired by the [Website Carbon Calculator algorithm](https://gitlab.com/wholegrain/carbon-api-2-0)
+This project is widely inspired by the [Website Carbon Calculator algorithm 2.0](https://gitlab.com/wholegrain/carbon-api-2-0) and [The Green Web Foundation co2.js](https://github.com/thegreenwebfoundation/co2.js)
 
 ### Glossary
 

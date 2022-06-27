@@ -14,14 +14,26 @@ class WebsiteCarbonCalculator {
 	use HelpersTraits;
 	use UrlTraits;
 
-	const KWG_PER_GB = 1.805;
-	const RETURNING_VISITOR_PERCENTAGE = 0.75;
+    // updated on 27-06-2022 from https://github.com/thegreenwebfoundation/co2.js/blob/main/src/sustainable-web-design.js
+
+    // this refers to the estimated total energy use for the internet around 2000 TWh,
+    // divided by the total transfer it enables around 2500 exabytes
+	const KWH_PER_GB = 0.81;
+
+    // Taken from: https://gitlab.com/wholegrain/carbon-api-2-0/-/blob/master/includes/carbonapi.php
+    const RETURNING_VISITOR_PERCENTAGE = 0.75;
 	const FIRST_TIME_VIEWING_PERCENTAGE = 0.25;
 	const PERCENTAGE_OF_DATA_LOADED_ON_SUBSEQUENT_LOAD = 0.02;
-	const CARBON_PER_KWG_GRID = 475;
-	const CARBON_PER_KWG_RENEWABLE = 33.4;
-	const PERCENTAGE_OF_ENERGY_IN_DATACENTER = 0.1008;
-	const PERCENTAGE_OF_ENERGY_IN_TRANSMISSION_AND_END_USER = 0.8992;
+
+    // These carbon intensity figures https://ember-climate.org/data/data-explorer
+    // - Global carbon intensity for 2021
+	const CARBON_PER_KWH_GRID = 442;
+	const CARBON_PER_KWH_RENEWABLE = 50;
+
+    // these constants outline how the energy is attributed to
+    // different parts of the system in the SWD model
+	const PERCENTAGE_OF_ENERGY_IN_DATACENTER = 0.15;
+	const PERCENTAGE_OF_ENERGY_IN_TRANSMISSION_AND_END_USER = 0.85;
 	const CO2_GRAMS_TO_LITRES = 0.5562;
 
 	const PAGESPEED_URL = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
@@ -220,7 +232,7 @@ class WebsiteCarbonCalculator {
 	 */
 	public static function energyConsumption(int $bytes): float
 	{
-		return $bytes * (self::KWG_PER_GB / 1073741824);
+		return $bytes * (self::KWH_PER_GB / (1024*1024*1024));
 	}
 
 	/**
@@ -230,7 +242,7 @@ class WebsiteCarbonCalculator {
 	 */
 	public static function getCo2Grid(float $energy): float
 	{
-		return $energy * self::CARBON_PER_KWG_GRID;
+		return $energy * self::CARBON_PER_KWH_GRID;
 	}
 
 	/**
@@ -240,7 +252,7 @@ class WebsiteCarbonCalculator {
 	 */
 	public static function getCo2Renewable(float $energy): float
 	{
-		return (($energy * self::PERCENTAGE_OF_ENERGY_IN_DATACENTER) * self::CARBON_PER_KWG_RENEWABLE) + (($energy * self::PERCENTAGE_OF_ENERGY_IN_TRANSMISSION_AND_END_USER) * self::CARBON_PER_KWG_GRID);
+		return (($energy * self::PERCENTAGE_OF_ENERGY_IN_DATACENTER) * self::CARBON_PER_KWH_RENEWABLE) + (($energy * self::PERCENTAGE_OF_ENERGY_IN_TRANSMISSION_AND_END_USER) * self::CARBON_PER_KWH_GRID);
 	}
 
 	/**
