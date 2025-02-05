@@ -106,6 +106,10 @@ class WebsiteCarbonCalculator {
 		if( $pagespeedApiKey = $options['pagespeedApiKey']??false )
 			$pageSpeedParameters['key'] = $pagespeedApiKey;
 
+		// Add the strategy if it exists
+		if( $strategy = $options['strategy']??false )
+			$pageSpeedParameters['strategy'] = $strategy;
+
 		// Send all the urls we need to process off together
 		$results = self::asyncRequests([
 			'pagespeedapi' => [
@@ -154,7 +158,7 @@ class WebsiteCarbonCalculator {
 		else
 			$isGreenHost = $options['isGreenHost']??false;
 
-		// If google page speed api didnt work
+		// If google page speed api didn't work
 		if(empty($lighthouseData->lighthouseResult->audits->{'network-requests'}->details->items))
 			throw new Exception('Google page speed API results is empty');
 
@@ -183,10 +187,11 @@ class WebsiteCarbonCalculator {
             'bytesTransferred' => $bytesTransfered,
 			'networkRequests' => count($lighthouseData->lighthouseResult->audits->{'network-requests'}->details->items),
             'domSize' => $lighthouseData->lighthouseResult->audits->{'dom-size'}->numericValue,
-            'performanceScore' => round($performanceScore*100)/100,
+            'performanceScore' => $lighthouseData->lighthouseResult->categories->{'performance'}->score?:$performanceScore,
 			'loadingExperience' => $lighthouseData->loadingExperience->overall_category,
 			'speedIndex' => round($lighthouseData->lighthouseResult->audits->{'speed-index'}->numericValue),
-			'firstMeaningfulPaint' => round($lighthouseData->lighthouseResult->audits->{'first-meaningful-paint'}->numericValue),
+			'firstContentfulPaint' => round($lighthouseData->lighthouseResult->audits->{'first-contentful-paint'}->numericValue),
+			'largestContentfulPaint' => round($lighthouseData->lighthouseResult->audits->{'largest-contentful-paint'}->numericValue),
 			'interactive' => round($lighthouseData->lighthouseResult->audits->{'interactive'}->numericValue),
 			'bootupTime' => round($lighthouseData->lighthouseResult->audits->{'bootup-time'}->numericValue),
 			'serverResponseTime' => round($lighthouseData->lighthouseResult->audits->{'server-response-time'}->numericValue),

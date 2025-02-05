@@ -4,7 +4,7 @@ namespace Akhela\WebsiteCarbonCalculator\Traits;
 
 trait HelpersTraits {
 
-    private static final function asyncRequests(array $requests): array
+    private static function asyncRequests(array $requests): array
     {
         // Guzzle with Async and promises
         // https://medium.com/@ardanirohman/how-to-handle-async-request-concurrency-with-promise-in-guzzle-6-cac10d76220e

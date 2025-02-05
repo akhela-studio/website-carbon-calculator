@@ -31,7 +31,8 @@ class WebsiteCarbonCalculatorTest  extends TestCase
         $this->assertGreaterThan(200, $data['domSize']);
         $this->assertEquals('FAST', $data['loadingExperience']);
         $this->assertGreaterThan(400, $data['speedIndex']);
-        $this->assertGreaterThan(200, $data['firstMeaningfulPaint']);
+        $this->assertGreaterThan(200, $data['firstContentfulPaint']);
+        $this->assertGreaterThan(200, $data['largestContentfulPaint']);
         $this->assertGreaterThan(5, $data['bootupTime']);
         $this->assertGreaterThan(100, $data['serverResponseTime']);
         $this->assertGreaterThan(100, $data['mainthreadWork']);
