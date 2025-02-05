@@ -4,7 +4,7 @@
     "description": "Estimate your web page carbon footprint and performance",
     "license": "MIT",
     "require": {
-        "guzzlehttp/guzzle": "6.0|7.0",
+        "guzzlehttp/guzzle": "^6.0|^7.0",
         "sabre/uri": "^2",
         "ext-json": "*"
     },
