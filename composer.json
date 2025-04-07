@@ -1,6 +1,6 @@
 {
     "name": "akhela/website-carbon-calculator",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Estimate your web page carbon footprint and performance",
     "license": "MIT",
     "require": {

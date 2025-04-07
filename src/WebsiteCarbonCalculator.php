@@ -188,7 +188,7 @@ class WebsiteCarbonCalculator {
 			'networkRequests' => count($lighthouseData->lighthouseResult->audits->{'network-requests'}->details->items),
             'domSize' => $lighthouseData->lighthouseResult->audits->{'dom-size'}->numericValue,
             'performanceScore' => $lighthouseData->lighthouseResult->categories->{'performance'}->score?:$performanceScore,
-			'loadingExperience' => $lighthouseData->loadingExperience->overall_category,
+			'loadingExperience' => $lighthouseData->loadingExperience->overall_category??0,
 			'speedIndex' => round($lighthouseData->lighthouseResult->audits->{'speed-index'}->numericValue),
 			'firstContentfulPaint' => round($lighthouseData->lighthouseResult->audits->{'first-contentful-paint'}->numericValue),
 			'largestContentfulPaint' => round($lighthouseData->lighthouseResult->audits->{'largest-contentful-paint'}->numericValue),
@@ -222,12 +222,12 @@ class WebsiteCarbonCalculator {
 	}
 
 	/**
-	 * @param int $val
+	 * @param int $bytes
 	 * @return int
 	 */
-	public static function adjustDataTransfer(int $val): int
+	public static function adjustDataTransfer(int $bytes): int
 	{
-		return ($val * self::RETURNING_VISITOR_PERCENTAGE) + (self::PERCENTAGE_OF_DATA_LOADED_ON_SUBSEQUENT_LOAD * $val * self::FIRST_TIME_VIEWING_PERCENTAGE);
+		return round(($bytes * self::RETURNING_VISITOR_PERCENTAGE) + (self::PERCENTAGE_OF_DATA_LOADED_ON_SUBSEQUENT_LOAD * $bytes * self::FIRST_TIME_VIEWING_PERCENTAGE));
 	}
 
 	/**
