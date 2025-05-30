@@ -1,6 +1,6 @@
 {
     "name": "sustainableweb/website-carbon-calculator",
-    "version": "1.2.0",
+    "version": "2.0.0",
     "description": "Estimate your web page carbon footprint and performance",
     "license": "MIT",
     "authors": [
