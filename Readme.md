@@ -10,7 +10,7 @@ The Website Carbon Calculator empowers website owners to assess and minimize the
 ### Installation
 
 ```shell
-$ composer require sustainableWeb/website-carbon-calculator
+$ composer require sustainableweb/website-carbon-calculator
 ```
 
 ### API
