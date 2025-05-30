@@ -1,10 +1,10 @@
 <?php
 
-namespace Akhela\WebsiteCarbonCalculator;
+namespace SustainableWeb\WebsiteCarbonCalculator;
 
 use Exception;
-use Akhela\WebsiteCarbonCalculator\Traits\HelpersTraits;
-use Akhela\WebsiteCarbonCalculator\Traits\UrlTraits;
+use SustainableWeb\WebsiteCarbonCalculator\Traits\HelpersTraits;
+use SustainableWeb\WebsiteCarbonCalculator\Traits\UrlTraits;
 
 use Sabre\Uri\InvalidUriException;
 

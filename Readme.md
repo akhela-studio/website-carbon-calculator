@@ -2,7 +2,7 @@
 
 The internet consumes a lot of electricity. 1021 TWh per year to be precise. To give you some perspective, that’s more than the entire United Kingdom.
 
-From data centres to transmission networks to the billions of connected devices that we hold in our hands, it is all consuming electricity, and in turn producing carbon emissions equal to or greater than the global aviation industry. Yikes!
+From data centers to transmission networks to the billions of connected devices that we hold in our hands, it is all consuming electricity, and in turn producing carbon emissions equal to or greater than the global aviation industry. Yikes!
 
 The Website Carbon Calculator empowers website owners to assess and minimize their carbon footprint. Drawing inspiration from the acclaimed Website Carbon Calculator algorithm 2.0 and leveraging The Green Web Foundation's co2.js, it allows you to calculate the CO₂ impact and performance of any url.
 
@@ -10,7 +10,7 @@ The Website Carbon Calculator empowers website owners to assess and minimize the
 ### Installation
 
 ```shell
-$ composer require akhela/website-carbon-calculator
+$ composer require sustainableWeb/website-carbon-calculator
 ```
 
 ### API
@@ -20,6 +20,8 @@ $ composer require akhela/website-carbon-calculator
 View the [Google documentation](https://developers.google.com/speed/docs/insights/v5/get-started#APIKey) to generate a Google Pagespeed Api Key
 
 ```php
+use SustainableWeb\WebsiteCarbonCalculator\WebsiteCarbonCalculator;
+
 $websiteCarbonCalculator = new WebsiteCarbonCalculator('GooglePagespeedApiKey');
 $websiteCarbonCalculator->calculateByURL('https://www.websitecarbon.com/how-does-it-work/', ['strategy'=>'desktop'])
 ```
@@ -51,6 +53,8 @@ For better performance, detect hosting energy type and store it in a database to
 #### Detect hosting energy type
 
 ```php
+use SustainableWeb\WebsiteCarbonCalculator\WebsiteCarbonCalculator;
+
 $isGreenHost = WebsiteCarbonCalculator::isGreenHost('https://www.websitecarbon.com')
 $websiteCarbonCalculator->calculateByURL('https://www.websitecarbon.com/how-does-it-work/', ['isGreenHost'=>$isGreenHost, 'strategy'=>'desktop'])
 ```
@@ -61,7 +65,7 @@ Calculating the carbon emissions of website is somewhat of a challenge, but usin
 
 - Data transfer over the wire
 - Energy intensity of web data
-- Energy source used by the data centre
+- Energy source used by the data center
 - Carbon intensity of electricity
 - Website traffic
 
