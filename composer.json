@@ -1,7 +1,7 @@
 {
     "name": "sustainableweb/website-carbon-calculator",
     "version": "2.0.0",
-    "description": "Estimate your web page carbon footprint and performance",
+    "description": "Lightweight and framework-agnostic PHP library to calculate web page carbon emissions based on real-time parameters. No external API required — ideal for custom integrations, CLI tools, or backend automation.",
     "license": "MIT",
     "authors": [
         {
